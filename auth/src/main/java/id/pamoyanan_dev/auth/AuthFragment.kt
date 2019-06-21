@@ -73,6 +73,9 @@ class AuthFragment : BaseFragment<AuthFragmentBinding, AuthVM>(), View.OnClickLi
         setupFacebookSignIn()
 
         // check current state if user has been login
+        if (Preference.getPref(requireContext(), GOOGLE_SIGN_IN_DATA).isNotEmpty()) {
+            navigateToHome()
+        }
     }
 
     override fun onSetInstrument() {

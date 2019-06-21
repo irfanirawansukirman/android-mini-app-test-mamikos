@@ -43,4 +43,9 @@
         <item name="android:colorControlNormal" tools:targetApi="lollipop">@color/colorAccent</item>
     </style>
 
+    <style name="BottomNavCustomFont" parent="Widget.Design.BottomNavigationView">
+        <item name="fontFamily">@font/fs_joey</item>
+        <item name="android:textSize">@dimen/size_14sp</item>
+    </style>
+
 </resources>

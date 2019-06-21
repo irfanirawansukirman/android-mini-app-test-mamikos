@@ -62,6 +62,10 @@ dependencies {
     api(GeneralLibraries.Network.okhttp)
     api(GeneralLibraries.Network.okhttpLogging)
 
+    api(GeneralLibraries.Image.glide)
+
+    kapt(GeneralLibraries.Image.glideCompiler)
+
     api(GeneralLibraries.Utils.gson)
 }
 

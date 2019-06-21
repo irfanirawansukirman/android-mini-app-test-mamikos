@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable name="masterItemCallback" type="id.pamoyanan_dev.home.master.MasterItemCallback"/>
+    </data>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimens_16dp"
+                android:orientation="vertical"
+                app:cardCornerRadius="0dp">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/fs_joey_bold"
+                        android:text="Favorite Category"
+                        android:layout_marginLeft="@dimen/dimens_16dp"
+                        android:layout_marginTop="@dimen/dimens_16dp"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/size_20sp"/>
+
+                <LinearLayout
+                        android:baselineAligned="false"
+                        android:layout_marginTop="@dimen/dimens_8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingTop="@dimen/dimens_16dp"
+                        android:paddingBottom="@dimen/dimens_16dp">
+
+                    <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="56dp"
+                            android:layout_weight="1"
+                            android:background="?selectableItemBackgroundBorderless"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:onClick="@{() -> masterItemCallback.onCategoryMovieSelected(`Cartoon`)}"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                        <ImageView
+                                android:layout_width="@dimen/dimens_32dp"
+                                android:layout_height="@dimen/dimens_32dp"
+                                android:contentDescription="@string/app_name"
+                                android:src="@drawable/ic_local_movies_24dp"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dimens_4dp"
+                                android:fontFamily="@font/fs_joey"
+                                android:text="Cartoon"
+                                android:textColor="@android:color/black"
+                                android:textSize="@dimen/size_14sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="56dp"
+                            android:layout_weight="1"
+                            android:background="?selectableItemBackgroundBorderless"
+                            android:clickable="true"
+                            android:onClick="@{() -> masterItemCallback.onCategoryMovieSelected(`Sci-Fi`)}"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                        <ImageView
+                                android:layout_width="@dimen/dimens_32dp"
+                                android:layout_height="@dimen/dimens_32dp"
+                                android:contentDescription="@string/app_name"
+                                android:src="@drawable/ic_local_movies_24dp"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dimens_4dp"
+                                android:fontFamily="@font/fs_joey"
+                                android:gravity="center"
+                                android:text="Sci-Fi"
+                                android:textColor="@android:color/black"
+                                android:textSize="@dimen/size_14sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="56dp"
+                            android:layout_weight="1"
+                            android:background="?selectableItemBackgroundBorderless"
+                            android:clickable="true"
+                            android:onClick="@{() -> masterItemCallback.onCategoryMovieSelected(`Comedy`)}"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                        <ImageView
+                                android:layout_width="@dimen/dimens_32dp"
+                                android:layout_height="@dimen/dimens_32dp"
+                                android:contentDescription="@string/app_name"
+                                android:src="@drawable/ic_local_movies_24dp"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dimens_4dp"
+                                android:fontFamily="@font/fs_joey"
+                                android:text="Comedy"
+                                android:textColor="@android:color/black"
+                                android:textSize="@dimen/size_14sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="56dp"
+                            android:layout_weight="1"
+                            android:background="?selectableItemBackgroundBorderless"
+                            android:clickable="true"
+                            android:onClick="@{() -> masterItemCallback.onCategoryMovieSelected(`Action`)}"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                        <ImageView
+                                android:layout_width="@dimen/dimens_32dp"
+                                android:layout_height="@dimen/dimens_32dp"
+                                android:contentDescription="@string/app_name"
+                                android:src="@drawable/ic_local_movies_24dp"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dimens_4dp"
+                                android:fontFamily="@font/fs_joey"
+                                android:text="Action"
+                                android:textColor="@android:color/black"
+                                android:textSize="@dimen/size_14sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                        android:baselineAligned="false"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingTop="@dimen/dimens_16dp"
+                        android:paddingBottom="@dimen/dimens_16dp">
+
+                    <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="56dp"
+                            android:layout_weight="1"
+                            android:onClick="@{() -> masterItemCallback.onCategoryMovieSelected(`Series`)}"
+                            android:background="?selectableItemBackgroundBorderless"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                        <ImageView
+                                android:layout_width="@dimen/dimens_32dp"
+                                android:layout_height="@dimen/dimens_32dp"
+                                android:contentDescription="@string/app_name"
+                                android:src="@drawable/ic_local_movies_24dp"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dimens_4dp"
+                                android:fontFamily="@font/fs_joey"
+                                android:text="Series"
+                                android:textColor="@android:color/black"
+                                android:textSize="@dimen/size_14sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="56dp"
+                            android:layout_weight="1"
+                            android:background="?selectableItemBackgroundBorderless"
+                            android:clickable="true"
+                            android:onClick="@{() -> masterItemCallback.onCategoryMovieSelected(`Sport`)}"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                        <ImageView
+                                android:layout_width="@dimen/dimens_32dp"
+                                android:layout_height="@dimen/dimens_32dp"
+                                android:contentDescription="@string/app_name"
+                                android:src="@drawable/ic_local_movies_24dp"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dimens_4dp"
+                                android:fontFamily="@font/fs_joey"
+                                android:gravity="center"
+                                android:text="Sport"
+                                android:textColor="@android:color/black"
+                                android:textSize="@dimen/size_14sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="56dp"
+                            android:layout_weight="1"
+                            android:background="?selectableItemBackgroundBorderless"
+                            android:clickable="true"
+                            android:onClick="@{() -> masterItemCallback.onCategoryMovieSelected(`Anime`)}"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                        <ImageView
+                                android:layout_width="@dimen/dimens_32dp"
+                                android:layout_height="@dimen/dimens_32dp"
+                                android:contentDescription="@string/app_name"
+                                android:src="@drawable/ic_local_movies_24dp"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dimens_4dp"
+                                android:fontFamily="@font/fs_joey"
+                                android:text="Anime"
+                                android:textColor="@android:color/black"
+                                android:textSize="@dimen/size_14sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="56dp"
+                            android:layout_weight="1"
+                            android:onClick="@{() -> masterItemCallback.onCategoryMovieSelected(`Religion`)}"
+                            android:background="?selectableItemBackgroundBorderless"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                        <ImageView
+                                android:layout_width="@dimen/dimens_32dp"
+                                android:layout_height="@dimen/dimens_32dp"
+                                android:contentDescription="@string/app_name"
+                                android:src="@drawable/ic_local_movies_24dp"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dimens_4dp"
+                                android:fontFamily="@font/fs_joey"
+                                android:text="Religion"
+                                android:textColor="@android:color/black"
+                                android:textSize="@dimen/size_14sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+</layout>
