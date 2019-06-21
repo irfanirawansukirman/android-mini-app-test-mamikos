@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "617141006888",
+    "firebase_url": "https://movie-shop-4664f.firebaseio.com",
+    "project_id": "movie-shop-4664f",
+    "storage_bucket": "movie-shop-4664f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:617141006888:android:c708597c13277642",
+        "android_client_info": {
+          "package_name": "id.pamoyanan_dev.irfanirawansukirman"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "617141006888-4mbrb6e9geb97jkqsso27grco5na88f8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.pamoyanan_dev.irfanirawansukirman",
+            "certificate_hash": "e4534637946484d9db0136e6cb66eef60272e147"
+          }
+        },
+        {
+          "client_id": "617141006888-09tdghq5ati8rvtrupbsi816ihta5sbg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.pamoyanan_dev.irfanirawansukirman",
+            "certificate_hash": "95dc416eaa939cbf19888eb613f70db2e03f7552"
+          }
+        },
+        {
+          "client_id": "617141006888-ien3ft24fva7aku1v8hh76ntuar1ia55.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmdhFnINJBIH8JkXyOtIR_cH8VLh0t9FA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "617141006888-37obdmgnsv3qd7b7pa1nvbkv2pus6k5r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
