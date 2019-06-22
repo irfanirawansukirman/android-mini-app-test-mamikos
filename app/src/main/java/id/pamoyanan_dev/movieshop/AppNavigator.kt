@@ -8,8 +8,10 @@ object AppNavigator {
     // feature package
     const val AUTH_PATH = "auth.AuthActivity"
     const val HOME_PATH = "home.HomeActivity"
+    const val PRODUCT_DETAIL_PATH = "product_detail.ProductDetailActivity"
 
     fun getAuthRoute() = BASE_PACKAGE + AUTH_PATH
     fun getHomeRoute() = BASE_PACKAGE + HOME_PATH
+    fun getProductDetailRoute() = BASE_PACKAGE + PRODUCT_DETAIL_PATH
 
 }

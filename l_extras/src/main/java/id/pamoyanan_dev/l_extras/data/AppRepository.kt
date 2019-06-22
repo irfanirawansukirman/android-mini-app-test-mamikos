@@ -1,5 +1,6 @@
 package id.pamoyanan_dev.l_extras.data
 
+import id.pamoyanan_dev.l_extras.data.model.Article
 import id.pamoyanan_dev.l_extras.data.model.JadwalSholat
 import id.pamoyanan_dev.l_extras.data.model.Result
 import id.pamoyanan_dev.l_extras.data.source.AppDataSource
@@ -13,6 +14,10 @@ class AppRepository(
 
     override suspend fun getAllJadwalSholat(): List<JadwalSholat> {
         return localDataSource.getAllJadwalSholat()
+    }
+
+    override suspend fun getAllEntertainmentNews(): List<Article>? {
+        return remoteDataSource.getAllEntertainmentNews()
     }
 
     override suspend fun getAllMovies(): List<Result>? {

@@ -1,1 +1,1 @@
-include ':app', ':l_extras', ':home', ':auth'
+include ':app', ':l_extras', ':home', ':auth', ':product_detail', ':news'

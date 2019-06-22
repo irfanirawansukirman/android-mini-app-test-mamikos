@@ -5,4 +5,6 @@
     <string name="web_client_id">617141006888-ien3ft24fva7aku1v8hh76ntuar1ia55.apps.googleusercontent.com</string>
     <string name="facebook_app_id">338148216857789</string>
     <string name="fb_login_protocol_scheme">fb338148216857789</string>
+    <string name="title_product_detail">Product Detail</string>
+    <string name="title_news">News</string>
 </resources>

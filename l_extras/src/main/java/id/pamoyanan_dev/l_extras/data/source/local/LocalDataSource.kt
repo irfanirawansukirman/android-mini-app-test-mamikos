@@ -1,6 +1,7 @@
 package id.pamoyanan_dev.l_extras.data.source.local
 
 import android.content.Context
+import id.pamoyanan_dev.l_extras.data.model.Article
 import id.pamoyanan_dev.l_extras.data.model.JadwalSholat
 import id.pamoyanan_dev.l_extras.data.model.Result
 import id.pamoyanan_dev.l_extras.data.source.AppDataSource
@@ -34,6 +35,10 @@ class LocalDataSource(private val context: Context) : AppDataSource {
                 insertAllJadwalSholat(data)
             }
         }
+    }
+
+    override suspend fun getAllEntertainmentNews(): List<Article>? {
+        throw Exception("You can't get entertainment news list from local database")
     }
 
     override suspend fun getAllMovies(): List<Result>? {

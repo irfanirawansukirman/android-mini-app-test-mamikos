@@ -1,11 +1,15 @@
 package id.pamoyanan_dev.l_extras.data.source
 
+import id.pamoyanan_dev.l_extras.data.model.Article
+import id.pamoyanan_dev.l_extras.data.model.EntertainmentNews
 import id.pamoyanan_dev.l_extras.data.model.JadwalSholat
 import id.pamoyanan_dev.l_extras.data.model.Result
 
 interface AppDataSource {
 
     suspend fun getAllMovies(): List<Result>?
+
+    suspend fun getAllEntertainmentNews(): List<Article>?
 
     suspend fun insetAllJadwalSholat(data: List<JadwalSholat>)
 

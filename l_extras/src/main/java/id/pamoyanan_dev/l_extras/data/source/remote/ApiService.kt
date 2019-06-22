@@ -3,6 +3,7 @@ package id.pamoyanan_dev.l_extras.data.source.remote
 import android.app.Application
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import id.pamoyanan_dev.l_extras.BuildConfig
+import id.pamoyanan_dev.l_extras.data.model.EntertainmentNews
 import id.pamoyanan_dev.l_extras.data.model.Movies
 import id.pamoyanan_dev.l_extras.ext.isNetworkAvailable
 import kotlinx.coroutines.Deferred
@@ -20,9 +21,12 @@ interface ApiService {
     @GET("3/discover/movie?api_key=1b2f29d43bf2e4f3142530bc6929d341&sort_by=popularity.desc")
     fun getMoviesAsync(): Deferred<Response<Movies>>
 
+    @GET("v2/top-headlines?sources=entertainment-weekly&apiKey=4fa8c99448514523bc529ef020fab345")
+    fun getEntertaimentNewsAsync(): Deferred<Response<EntertainmentNews>>
+
     companion object Builder {
 
-        fun newBuilder(application: Application): ApiService {
+        fun newBuilder(application: Application, baseUrl: String): ApiService {
             val loggingIntercepter = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
             val cacheSize = (5 * 1024 * 1024).toLong()
             val appCache = Cache(application.cacheDir, cacheSize)
@@ -93,7 +97,7 @@ interface ApiService {
             }
 
             val retrofit = Retrofit.Builder()
-                .baseUrl("https://api.themoviedb.org/")
+                .baseUrl(baseUrl)
                 .addConverterFactory(MoshiConverterFactory.create())
                 .addCallAdapterFactory(CoroutineCallAdapterFactory())
                 .client(okhttpClient)

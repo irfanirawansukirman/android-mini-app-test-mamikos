@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable name="newsItemCallback" type="id.pamoyanan_dev.home.news.NewsItemCallback"/>
+        <variable name="article" type="id.pamoyanan_dev.l_extras.data.model.Article"/>
+        <variable name="publishDate" type="String"/>
+        <variable name="publishTime" type="String"/>
+    </data>
+
+    <android.support.v7.widget.CardView
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardUseCompatPadding="true"
+            app:cardCornerRadius="0dp">
+
+        <RelativeLayout
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?selectableItemBackground"
+                android:onClick="@{() -> newsItemCallback.onItemNewsSelected(article)}"
+                android:layout_width="match_parent"
+                android:layout_height="256dp">
+
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@string/app_name"
+                    app:imageUrl="@{article.urlToImage}"/>
+
+            <View android:layout_width="match_parent" android:layout_height="match_parent"
+                  android:background="@drawable/cv_gradient_black_to_transparent"/>
+
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:fontFamily="@font/fs_joey_bold"
+                      android:textSize="@dimen/size_20sp"
+                      android:layout_marginRight="@dimen/dimens_16dp"
+                      android:layout_marginLeft="@dimen/dimens_16dp"
+                      android:lineSpacingExtra="@dimen/dimens_2dp"
+                      android:layout_above="@+id/txt_news_author"
+                      android:layout_marginBottom="@dimen/dimens_4dp"
+                      android:textColor="@android:color/white"
+                      android:text="@{article.title}"/>
+
+            <TextView
+                    android:id="@+id/txt_news_author"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/size_14sp"
+                    android:layout_above="@+id/txt_news_publishDate"
+                    android:textColor="@android:color/white"
+                    android:fontFamily="@font/fs_joey"
+                    android:layout_marginBottom="@dimen/dimens_4dp"
+                    android:layout_marginRight="@dimen/dimens_16dp"
+                    android:layout_marginLeft="@dimen/dimens_16dp"
+                    android:text="@{`By ` + article.author}"/>
+
+            <TextView
+                    android:id="@+id/txt_news_publishDate"
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/size_14sp"
+                    android:fontFamily="@font/fs_joey"
+                    android:textColor="@android:color/white"
+                    android:layout_marginBottom="@dimen/dimens_16dp"
+                    android:layout_marginRight="@dimen/dimens_16dp"
+                    android:layout_marginLeft="@dimen/dimens_16dp"
+                    android:text="@{`Published ` + publishDate + ` At ` + publishTime}"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+</layout>

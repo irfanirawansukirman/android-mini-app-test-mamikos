@@ -2,6 +2,7 @@ package id.pamoyanan_dev.l_extras.data.source.remote
 
 import android.app.Application
 import android.util.Log
+import id.pamoyanan_dev.l_extras.data.model.Article
 import id.pamoyanan_dev.l_extras.data.model.JadwalSholat
 import id.pamoyanan_dev.l_extras.data.model.Result
 import id.pamoyanan_dev.l_extras.data.source.AppDataSource
@@ -11,17 +12,30 @@ import retrofit2.Response
 
 class RemoteDataSource(private val application: Application) : AppDataSource {
 
-    private val apiService: ApiService by lazy {
-        ApiService.newBuilder(application)
+    private val movieApiService: ApiService by lazy {
+        ApiService.newBuilder(application, BASE_URL_MOVIE)
+    }
+
+    private val entertaimentNewsApiService: ApiService by lazy {
+        ApiService.newBuilder(application, BASE_URL_NEWS)
     }
 
     override suspend fun getAllJadwalSholat(): List<JadwalSholat> {
         return emptyList()
     }
 
+    override suspend fun getAllEntertainmentNews(): List<Article>? {
+        val entertainmentNewsResponse = safeApiCall(
+            call = { entertaimentNewsApiService.getEntertaimentNewsAsync().await() },
+            errorMessage = "Error Fetching Entertainment News"
+        )
+
+        return entertainmentNewsResponse?.articles
+    }
+
     override suspend fun getAllMovies(): List<Result>? {
         val movieResponse = safeApiCall(
-            call = { apiService.getMoviesAsync().await() },
+            call = { movieApiService.getMoviesAsync().await() },
             errorMessage = "Error Fetching Popular Movies"
         )
 
@@ -54,6 +68,11 @@ class RemoteDataSource(private val application: Application) : AppDataSource {
         if (response.isSuccessful) return Results.Success(response.body()!!)
 
         return Results.Error(IOException("Error Occurred during getting safe Api result, Custom ERROR - $errorMessage"))
+    }
+
+    companion object {
+        const val BASE_URL_MOVIE = "https://api.themoviedb.org/"
+        const val BASE_URL_NEWS = "https://newsapi.org/"
     }
 
 }
