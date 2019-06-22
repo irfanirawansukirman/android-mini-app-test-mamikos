@@ -1,83 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".HomeActivity">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".HomeActivity">
 
         <android.support.design.card.MaterialCardView
-            android:id="@+id/card_home_toolbarContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            app:cardCornerRadius="0dp"
-            app:cardElevation="@dimen/dimens_4dp">
+                android:id="@+id/card_home_toolbarContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                app:cardCornerRadius="0dp"
+                app:cardElevation="@dimen/dimens_4dp">
 
             <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                style="@style/ToolbarLight"
-                android:background="@android:color/white"
-                android:theme="@style/ToolbarAccent"
-                app:navigationIcon="@drawable/ic_favorite_border_24dp">
+                    android:id="@+id/toolbar"
+                    style="@style/ToolbarLight"
+                    android:background="@android:color/white"
+                    android:theme="@style/ToolbarAccent"
+                    app:navigationIcon="@drawable/ic_favorite_border_24dp">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/dimens_8dp"
-                    android:background="@drawable/cv_home_searchbox_grey_rounded"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                        android:id="@+id/lin_toolbar_searchContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dimens_8dp"
+                        android:background="@drawable/cv_home_searchbox_grey_rounded"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="@dimen/dimens_24dp"
-                        android:layout_height="@dimen/dimens_24dp"
-                        android:layout_marginLeft="@dimen/dimens_16dp"
-                        android:src="@drawable/ic_search_24dp" />
+                            android:layout_width="@dimen/dimens_24dp"
+                            android:layout_height="@dimen/dimens_24dp"
+                            android:layout_marginLeft="@dimen/dimens_16dp"
+                            android:src="@drawable/ic_search_24dp"/>
 
                     <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/dimens_16dp"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/fs_joey"
-                        android:text="Search Movie"
-                        android:textSize="@dimen/size_16sp" />
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dimens_16dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/fs_joey"
+                            android:text="Search Movie"
+                            android:textSize="@dimen/size_16sp"/>
                 </LinearLayout>
+
+                <TextView
+                        android:id="@+id/txt_toolbar_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/fs_joey_bold"
+                        android:gravity="center_vertical"
+                        android:text="@string/app_name"
+                        android:visibility="gone"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/size_20sp"
+                        tools:text="@string/app_name"/>
 
             </android.support.v7.widget.Toolbar>
         </android.support.design.card.MaterialCardView>
 
         <FrameLayout
-            android:id="@+id/frame_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/card_home_bottomNavContainer"
-            android:layout_below="@+id/card_home_toolbarContainer"
-            android:background="@color/greyBackgroundDefault" />
+                android:id="@+id/frame_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/card_home_bottomNavContainer"
+                android:layout_below="@+id/card_home_toolbarContainer"
+                android:background="@color/greyBackgroundDefault"/>
 
         <android.support.design.card.MaterialCardView
-            android:id="@+id/card_home_bottomNavContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            app:cardCornerRadius="0dp"
-            app:cardElevation="@dimen/dimens_4dp">
-
-            <android.support.design.widget.BottomNavigationView
-                android:id="@+id/bottom_home"
+                android:id="@+id/card_home_bottomNavContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@android:color/white"
-                android:clickable="true"
-                android:focusable="true"
-                android:theme="@style/BottomNavCustomFont"
-                app:itemIconTint="@drawable/bottom_nav_selector"
-                app:itemTextColor="@drawable/bottom_nav_selector"
-                app:labelVisibilityMode="labeled"
-                app:menu="@menu/bottom_home_menu" />
+                android:layout_alignParentBottom="true"
+                app:cardCornerRadius="0dp"
+                app:cardElevation="@dimen/dimens_4dp">
+
+            <android.support.design.widget.BottomNavigationView
+                    android:id="@+id/bottom_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:theme="@style/BottomNavCustomFont"
+                    app:itemIconTint="@drawable/bottom_nav_selector"
+                    app:itemTextColor="@drawable/bottom_nav_selector"
+                    app:labelVisibilityMode="labeled"
+                    app:menu="@menu/bottom_home_menu"/>
         </android.support.design.card.MaterialCardView>
     </RelativeLayout>
 </layout>

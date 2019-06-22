@@ -7,27 +7,39 @@ import id.pamoyanan_dev.home.databinding.HomeActivityBinding
 import id.pamoyanan_dev.home.master.MasterFragment
 import id.pamoyanan_dev.home.news.NewsFragment
 import id.pamoyanan_dev.l_extras.base.BaseActivity
+import id.pamoyanan_dev.l_extras.ext.gone
 import id.pamoyanan_dev.l_extras.ext.replaceFragmentInActivity
+import id.pamoyanan_dev.l_extras.ext.visible
 import kotlinx.android.synthetic.main.home_activity.*
 
 class HomeActivity : BaseActivity<HomeActivityBinding>(), BottomNavigationView.OnNavigationItemSelectedListener {
+
+    private var actionToolbarMenu: Menu? = null
 
     override fun onNavigationItemSelected(p0: MenuItem): Boolean {
         return when (p0.itemId) {
             R.id.action_home -> {
                 replaceFragmentInActivity(MasterFragment.newInstance(), R.id.frame_container)
+                setupLikeButtonVisibility(true)
+                setupSearchContainerVisibility(true)
+                setupToolbarTitleVisibility(false)
+                setupActionToolbarMenuVisibility(true)
                 true
             }
             R.id.action_news -> {
                 replaceFragmentInActivity(NewsFragment.newInstance(), R.id.frame_container)
+                setupLikeButtonVisibility(false)
+                setupSearchContainerVisibility(false)
+                setupToolbarTitleVisibility(true)
+                setupActionToolbarMenuVisibility(false)
                 true
             }
             R.id.action_transaction -> {
-                replaceFragmentInActivity(MasterFragment.newInstance(), R.id.frame_container)
+                // replaceFragmentInActivity(MasterFragment.newInstance(), R.id.frame_container)
                 true
             }
             else -> {
-                replaceFragmentInActivity(NewsFragment.newInstance(), R.id.frame_container)
+                // replaceFragmentInActivity(NewsFragment.newInstance(), R.id.frame_container)
                 true
             }
         }
@@ -43,11 +55,38 @@ class HomeActivity : BaseActivity<HomeActivityBinding>(), BottomNavigationView.O
 
     override fun onStartWork() {
         bottom_home.setOnNavigationItemSelectedListener(this)
+
+        txt_toolbar_title.text = "Entertainment News"
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.toolbar_home_menu, menu)
+        actionToolbarMenu = menu
         return true
+    }
+
+    private fun setupSearchContainerVisibility(isVisible: Boolean) {
+        if (isVisible) {
+            lin_toolbar_searchContainer.visible()
+        } else {
+            lin_toolbar_searchContainer.gone()
+        }
+    }
+
+    private fun setupLikeButtonVisibility(isVisible: Boolean) {
+        supportActionBar?.setDisplayHomeAsUpEnabled(isVisible)
+    }
+
+    private fun setupToolbarTitleVisibility(isVisible: Boolean) {
+        if (isVisible) {
+            txt_toolbar_title.visible()
+        } else {
+            txt_toolbar_title.gone()
+        }
+    }
+
+    private fun setupActionToolbarMenuVisibility(isVisible: Boolean) {
+        actionToolbarMenu?.findItem(R.id.action_bookmark)?.isVisible = isVisible
     }
 
 }

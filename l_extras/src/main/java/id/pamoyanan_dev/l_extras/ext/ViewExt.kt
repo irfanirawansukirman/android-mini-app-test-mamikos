@@ -22,3 +22,22 @@ fun RecyclerView.horizontalListStyle() {
     isDrawingCacheEnabled = true
     drawingCacheQuality = View.DRAWING_CACHE_QUALITY_HIGH
 }
+
+
+fun View.visible(
+
+) {
+    if (this.visibility == View.GONE) this.visibility = View.VISIBLE
+}
+
+fun View.gone(
+
+) {
+    if (this.visibility == View.VISIBLE) this.visibility = View.GONE
+}
+
+fun View.invisible(
+
+) {
+    if (this.visibility == View.VISIBLE) this.visibility = View.INVISIBLE
+}
