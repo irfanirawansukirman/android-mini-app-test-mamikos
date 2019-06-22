@@ -1,160 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <variable name="authVM" type="id.pamoyanan_dev.auth.AuthVM"/>
+
+        <variable
+            name="authVM"
+            type="id.pamoyanan_dev.auth.AuthVM" />
     </data>
 
     <LinearLayout
-            android:gravity="center"
-            android:orientation="vertical"
-            android:background="@color/greyBackgroundDefault"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/greyBackgroundDefault"
+        android:gravity="center"
+        android:orientation="vertical">
 
         <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
             <ImageView
-                    android:layout_gravity="center"
-                    android:layout_width="96dp"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/app_name"
-                    android:adjustViewBounds="true"
-                    android:tint="@android:color/black"
-                    android:src="@drawable/ic_movie"/>
+                android:layout_width="96dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_movie"
+                android:tint="@android:color/black" />
 
             <com.facebook.login.widget.LoginButton
-                    android:id="@+id/btn_auth_fbOriginal"
-                    android:visibility="invisible"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                android:id="@+id/btn_auth_fbOriginal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible" />
         </FrameLayout>
 
         <TextView
-                android:layout_marginTop="@dimen/dimens_4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/size_20sp"
-                android:textColor="@android:color/black"
-                android:fontFamily="@font/neosanspro_regular"
-                android:text="iMovie"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_4dp"
+            android:fontFamily="@font/neosanspro_regular"
+            android:text="@string/imovie"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/size_20sp" />
 
         <android.support.design.widget.TextInputLayout
-                android:layout_marginTop="@dimen/dimens_48dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimens_24dp"
-                android:layout_marginRight="@dimen/dimens_24dp"
-                android:hint="Email">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimens_24dp"
+            android:layout_marginTop="@dimen/dimens_48dp"
+            android:layout_marginRight="@dimen/dimens_24dp"
+            android:hint="@string/email">
 
             <EditText
-                    android:textSize="@dimen/size_18sp"
-                    android:inputType="textEmailAddress"
-                    android:fontFamily="@font/fs_joey_bold"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimens_48dp"/>
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_48dp"
+                android:fontFamily="@font/fs_joey_bold"
+                android:inputType="textEmailAddress"
+                android:textSize="@dimen/size_18sp" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-                android:layout_marginTop="@dimen/dimens_24dp"
-                android:layout_width="match_parent"
-                android:layout_marginLeft="@dimen/dimens_24dp"
-                android:layout_marginRight="@dimen/dimens_24dp"
-                android:layout_height="wrap_content"
-                android:hint="Password"
-                app:passwordToggleEnabled="true">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimens_24dp"
+            android:layout_marginTop="@dimen/dimens_24dp"
+            android:layout_marginRight="@dimen/dimens_24dp"
+            android:hint="@string/password"
+            app:passwordToggleEnabled="true">
 
             <EditText
-                    android:textSize="@dimen/size_18sp"
-                    android:inputType="textPassword"
-                    android:fontFamily="@font/fs_joey_bold"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimens_48dp"/>
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_48dp"
+                android:fontFamily="@font/fs_joey_bold"
+                android:inputType="textPassword"
+                android:textSize="@dimen/size_18sp" />
         </android.support.design.widget.TextInputLayout>
 
         <Button
-                android:id="@+id/btn_auth_signIn"
-                android:fontFamily="@font/fs_joey_bold"
-                android:background="@drawable/cv_button_light_pressed"
-                android:text="Sign In"
-                android:layout_marginRight="@dimen/dimens_28dp"
-                android:layout_marginLeft="@dimen/dimens_28dp"
-                android:layout_marginTop="@dimen/dimens_32dp"
-                android:textColor="@android:color/white"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/size_18sp"
-                android:minHeight="@dimen/dimens_48dp"/>
+            android:id="@+id/btn_auth_signIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimens_28dp"
+            android:layout_marginTop="@dimen/dimens_32dp"
+            android:layout_marginRight="@dimen/dimens_28dp"
+            android:background="@drawable/cv_button_light_pressed"
+            android:fontFamily="@font/fs_joey_bold"
+            android:minHeight="@dimen/dimens_48dp"
+            android:text="@string/sign_in"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/size_18sp" />
 
         <LinearLayout
-                android:layout_marginRight="@dimen/dimens_28dp"
-                android:layout_marginLeft="@dimen/dimens_28dp"
-                android:gravity="center"
-                android:layout_marginTop="@dimen/dimens_16dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimens_28dp"
+            android:layout_marginTop="@dimen/dimens_16dp"
+            android:layout_marginRight="@dimen/dimens_28dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-            <View style="@style/ViewDefaultWeigh1"/>
+            <View style="@style/ViewDefaultWeigh1" />
 
             <TextView
-                    android:fontFamily="@font/fs_joey_bold"
-                    android:layout_width="wrap_content"
-                    android:layout_marginLeft="@dimen/dimens_8dp"
-                    android:layout_marginRight="@dimen/dimens_8dp"
-                    android:layout_height="wrap_content"
-                    android:text="Or"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimens_8dp"
+                android:layout_marginRight="@dimen/dimens_8dp"
+                android:fontFamily="@font/fs_joey_bold"
+                android:text="@string/or" />
 
-            <View style="@style/ViewDefaultWeigh1"/>
+            <View style="@style/ViewDefaultWeigh1" />
 
         </LinearLayout>
 
         <LinearLayout
-                android:layout_marginTop="@dimen/dimens_16dp"
-                android:layout_width="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_16dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_auth_facebook"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_marginLeft="@dimen/dimens_28dp"
+                android:layout_marginRight="@dimen/dimens_8dp"
+                android:layout_marginBottom="@dimen/dimens_16dp"
+                android:layout_weight="1"
+                android:background="@drawable/cv_button_light_pressed_facebook"
+                android:drawableLeft="@drawable/ic_facebook_letter_logo"
+                android:drawableTint="@android:color/white"
+                android:fontFamily="@font/fs_joey_bold"
+                android:minHeight="@dimen/dimens_48dp"
+                android:paddingLeft="@dimen/dimens_16dp"
+                android:text="@string/facebook"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/size_18sp" />
 
             <Button
-                    android:id="@+id/btn_auth_facebook"
-                    android:fontFamily="@font/fs_joey_bold"
-                    android:background="@drawable/cv_button_light_pressed_facebook"
-                    android:text="Facebook"
-                    android:layout_marginRight="@dimen/dimens_8dp"
-                    android:layout_marginLeft="@dimen/dimens_28dp"
-                    android:layout_marginBottom="@dimen/dimens_16dp"
-                    android:textColor="@android:color/white"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:paddingLeft="@dimen/dimens_16dp"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/ic_facebook_letter_logo"
-                    android:drawableTint="@android:color/white"
-                    android:textSize="@dimen/size_18sp"
-                    android:minHeight="@dimen/dimens_48dp"/>
-
-            <Button
-                    android:id="@+id/btn_auth_google"
-                    android:fontFamily="@font/fs_joey_bold"
-                    android:background="@drawable/cv_button_light_pressed_google"
-                    android:text="Google"
-                    android:layout_marginRight="@dimen/dimens_28dp"
-                    android:layout_marginLeft="@dimen/dimens_8dp"
-                    android:layout_marginBottom="@dimen/dimens_16dp"
-                    android:textColor="@android:color/black"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
-                    android:layout_width="0dp"
-                    android:paddingLeft="@dimen/dimens_16dp"
-                    android:drawableLeft="@drawable/ic_google"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/size_18sp"
-                    android:minHeight="@dimen/dimens_48dp"/>
+                android:id="@+id/btn_auth_google"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimens_8dp"
+                android:layout_marginRight="@dimen/dimens_28dp"
+                android:layout_marginBottom="@dimen/dimens_16dp"
+                android:layout_weight="1"
+                android:background="@drawable/cv_button_light_pressed_google"
+                android:drawableLeft="@drawable/ic_google"
+                android:fontFamily="@font/fs_joey_bold"
+                android:minHeight="@dimen/dimens_48dp"
+                android:paddingLeft="@dimen/dimens_16dp"
+                android:text="@string/google"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/size_18sp" />
         </LinearLayout>
     </LinearLayout>
 </layout>

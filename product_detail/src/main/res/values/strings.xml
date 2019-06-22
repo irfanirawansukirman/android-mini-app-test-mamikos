@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="buy">Buy</string>
+    <string name="rp_100_000">Rp. 100.000</string>
+    <string name="total_price">Total Price</string>
+    <string name="description">Description</string>
+    <string name="rating">Rating</string>
+</resources>

@@ -20,6 +20,15 @@ class RemoteDataSource(private val application: Application) : AppDataSource {
         ApiService.newBuilder(application, BASE_URL_MOVIE)
     }
 
+    override suspend fun searchMovie(query: String): List<Result>? {
+        val searchMovieResponse = safeApiCall(
+            call = {movieApiService.searchMoviesAsync(query).await()},
+            errorMessage = "Error Search Movie"
+        )
+
+        return searchMovieResponse?.results
+    }
+
     override suspend fun getAllMovies(): List<Result>? {
         val movieResponse = safeApiCall(
                 call = { movieApiService.getMoviesAsync().await() },

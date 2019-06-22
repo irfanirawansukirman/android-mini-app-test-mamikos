@@ -11,12 +11,16 @@ import kotlinx.coroutines.withContext
 
 class LocalDataSource(private val context: Context) : AppDataSource {
 
-    override suspend fun getAllMovies(): List<Result>? {
+    private val movieShopDao: MovieShopDao by lazy {
+        DataDBSource.getInstance(context).movieShopDao()
+    }
+
+    override suspend fun searchMovie(query: String): List<Result>? {
         return emptyList()
     }
 
-    private val movieShopDao: MovieShopDao by lazy {
-        DataDBSource.getInstance(context).movieShopDao()
+    override suspend fun getAllMovies(): List<Result>? {
+        return emptyList()
     }
 
     override suspend fun insertMovieFilter(movieFilter: MovieFilter) {

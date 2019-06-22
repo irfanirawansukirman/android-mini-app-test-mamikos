@@ -6,6 +6,8 @@ import id.pamoyanan_dev.l_extras.data.model.Result
 
 interface AppDataSource {
 
+    suspend fun searchMovie(query: String): List<Result>?
+
     suspend fun getAllMovies(): List<Result>?
 
     suspend fun getAllEntertainmentNews(): List<Article>?

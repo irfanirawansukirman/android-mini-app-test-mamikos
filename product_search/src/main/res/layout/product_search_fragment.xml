@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="productSearchVM"
+            type="id.pamoyanan_dev.product_search.ProductSearchVM" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.design.card.MaterialCardView
+            android:id="@+id/card_productDetail_toolbarContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="@dimen/dimens_4dp">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/ToolbarLight"
+                android:theme="@style/ToolbarAccent">
+
+                <LinearLayout
+                    android:id="@+id/lin_toolbar_searchContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimens_8dp"
+                    android:background="@drawable/cv_home_searchbox_grey_rounded"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/dimens_24dp"
+                        android:layout_height="@dimen/dimens_24dp"
+                        android:layout_marginLeft="@dimen/dimens_16dp"
+                        android:src="@drawable/ic_search_24dp" />
+
+                    <EditText
+                        android:id="@+id/edtxt_productSearch"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimens_16dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/fs_joey"
+                        android:hint="Search Movie Product"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/size_16sp" />
+                </LinearLayout>
+
+
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.card.MaterialCardView>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rec_productSearch"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/greyBackgroundDefault"
+                android:clipToPadding="false"
+                android:padding="@dimen/dimens_4dp"
+                android:scrollbars="none" />
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="@{productSearchVM.eventShowProgress ? View.VISIBLE : View.GONE}" />
+        </FrameLayout>
+    </LinearLayout>
+
+</layout>

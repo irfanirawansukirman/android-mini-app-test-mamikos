@@ -9,12 +9,21 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.facebook.CallbackManager
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.firebase.auth.FirebaseAuth
+import id.pamoyanan_dev.l_extras.R
 import id.pamoyanan_dev.l_extras.ext.showToast
 
 abstract class BaseFragment<VDB : ViewDataBinding, BVM : BaseViewModel> : Fragment() {
 
     lateinit var viewBinding: VDB
     lateinit var baseViewModel: BVM
+    lateinit var googleSignInClient: GoogleSignInClient
+    lateinit var auth: FirebaseAuth
+    lateinit var callbackManager: CallbackManager
 
     private var messageType = MESSAGE_SNACK_TYPE
 
@@ -49,7 +58,24 @@ abstract class BaseFragment<VDB : ViewDataBinding, BVM : BaseViewModel> : Fragme
 
         onLoadObserver(baseViewModel)
         onSetInstrument()
+
+        setupGoogleClient(setupGoogleSignIn())
+        setupFirebaseAuth()
+
         onStartWork()
+    }
+
+    private fun setupGoogleSignIn() = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+
+    private fun setupGoogleClient(gso: GoogleSignInOptions) {
+        googleSignInClient = GoogleSignIn.getClient(requireActivity(), gso)
+    }
+
+    fun setupFirebaseAuth() {
+        auth = FirebaseAuth.getInstance()
     }
 
     @LayoutRes

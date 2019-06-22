@@ -14,12 +14,16 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Query
 import java.util.concurrent.TimeUnit
 
 interface ApiService {
 
     @GET("3/discover/movie?api_key=1b2f29d43bf2e4f3142530bc6929d341&sort_by=popularity.desc")
     fun getMoviesAsync(): Deferred<Response<Movies>>
+
+    @GET("3/search/movie?api_key=1b2f29d43bf2e4f3142530bc6929d341&language=en-US&page=1&include_adult=false")
+    fun searchMoviesAsync(@Query("query") query: String): Deferred<Response<Movies>>
 
     @GET("v2/top-headlines?sources=entertainment-weekly&apiKey=4fa8c99448514523bc529ef020fab345")
     fun getEntertaimentNewsAsync(): Deferred<Response<EntertainmentNews>>

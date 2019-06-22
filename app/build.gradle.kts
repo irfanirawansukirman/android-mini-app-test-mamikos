@@ -31,7 +31,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 
-    dynamicFeatures = mutableSetOf(":home", ":auth", ":product_detail", ":news")
+    dynamicFeatures = mutableSetOf(":home", ":auth", ":product_detail", ":product_search")
 
 }
 

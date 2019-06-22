@@ -7,4 +7,6 @@
     <string name="fb_login_protocol_scheme">fb338148216857789</string>
     <string name="title_product_detail">Product Detail</string>
     <string name="title_news">News</string>
+    <string name="title_product_search">Product Search</string>
+    <string name="imovie">iMovie</string>
 </resources>

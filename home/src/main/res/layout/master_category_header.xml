@@ -65,7 +65,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/dimens_4dp"
                                 android:fontFamily="@font/fs_joey"
-                                android:text="Cartoon"
+                                android:text="@string/cartoon"
                                 android:textColor="@android:color/black"
                                 android:textSize="@dimen/size_14sp"/>
                     </LinearLayout>
@@ -93,7 +93,7 @@
                                 android:layout_marginTop="@dimen/dimens_4dp"
                                 android:fontFamily="@font/fs_joey"
                                 android:gravity="center"
-                                android:text="Sci-Fi"
+                                android:text="@string/sci_fi"
                                 android:textColor="@android:color/black"
                                 android:textSize="@dimen/size_14sp"/>
                     </LinearLayout>
@@ -120,7 +120,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/dimens_4dp"
                                 android:fontFamily="@font/fs_joey"
-                                android:text="Comedy"
+                                android:text="@string/comedy"
                                 android:textColor="@android:color/black"
                                 android:textSize="@dimen/size_14sp"/>
                     </LinearLayout>
@@ -147,7 +147,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/dimens_4dp"
                                 android:fontFamily="@font/fs_joey"
-                                android:text="Action"
+                                android:text="@string/action"
                                 android:textColor="@android:color/black"
                                 android:textSize="@dimen/size_14sp"/>
                     </LinearLayout>
@@ -183,7 +183,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/dimens_4dp"
                                 android:fontFamily="@font/fs_joey"
-                                android:text="Series"
+                                android:text="@string/series"
                                 android:textColor="@android:color/black"
                                 android:textSize="@dimen/size_14sp"/>
                     </LinearLayout>
@@ -211,7 +211,7 @@
                                 android:layout_marginTop="@dimen/dimens_4dp"
                                 android:fontFamily="@font/fs_joey"
                                 android:gravity="center"
-                                android:text="Sport"
+                                android:text="@string/sport"
                                 android:textColor="@android:color/black"
                                 android:textSize="@dimen/size_14sp"/>
                     </LinearLayout>
@@ -238,7 +238,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/dimens_4dp"
                                 android:fontFamily="@font/fs_joey"
-                                android:text="Anime"
+                                android:text="@string/anime"
                                 android:textColor="@android:color/black"
                                 android:textSize="@dimen/size_14sp"/>
                     </LinearLayout>
@@ -265,7 +265,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/dimens_4dp"
                                 android:fontFamily="@font/fs_joey"
-                                android:text="Religion"
+                                android:text="@string/religion"
                                 android:textColor="@android:color/black"
                                 android:textSize="@dimen/size_14sp"/>
                     </LinearLayout>

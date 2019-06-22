@@ -7,4 +7,5 @@
     <string name="gps_settings_text">GPS is not enabled. Do you want to go to settings menu?</string>
     <string name="settings_button_ok">Settings</string>
     <string name="settings_button_cancel">Cancel</string>
+    <string name="default_web_client_id" translatable="false">617141006888-ien3ft24fva7aku1v8hh76ntuar1ia55.apps.googleusercontent.com</string>
 </resources>

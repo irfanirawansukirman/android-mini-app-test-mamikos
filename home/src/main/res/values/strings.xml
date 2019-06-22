@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search_movie">Search Movie</string>
+    <string name="cartoon">Cartoon</string>
+    <string name="sci_fi">Sci-Fi</string>
+    <string name="comedy">Comedy</string>
+    <string name="action">Action</string>
+    <string name="series">Series</string>
+    <string name="sport">Sport</string>
+    <string name="anime">Anime</string>
+    <string name="religion">Religion</string>
+    <string name="movie_title">Movie Title</string>
+    <string name="rating">Rating</string>
+    <string name="description">Description</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="you_have_not_made_a_purchase_transaction">You have not made a purchase transaction</string>
+    <string name="movie_title">Movie Title</string>
+    <string name="rating">Rating</string>
+    <string name="description">Description</string>
+</resources>

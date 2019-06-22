@@ -50,7 +50,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/fs_joey"
-                        android:text="Movie Title"
+                        android:text="@string/movie_title"
                         android:textSize="@dimen/size_14sp"/>
 
                 <TextView
@@ -70,7 +70,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dimens_16dp"
                         android:fontFamily="@font/fs_joey"
-                        android:text="Rating"
+                        android:text="@string/rating"
                         android:textSize="@dimen/size_14sp"/>
 
                 <TextView
@@ -87,7 +87,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dimens_16dp"
                         android:fontFamily="@font/fs_joey"
-                        android:text="Description"
+                        android:text="@string/description"
                         android:textSize="@dimen/size_14sp"/>
 
                 <TextView

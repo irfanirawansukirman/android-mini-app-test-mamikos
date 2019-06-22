@@ -9,7 +9,6 @@ import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
@@ -24,6 +23,7 @@ import id.pamoyanan_dev.l_extras.ext.navigatorImplicit
 import id.pamoyanan_dev.l_extras.ext.putArgs
 import id.pamoyanan_dev.l_extras.ext.showToast
 import id.pamoyanan_dev.l_extras.util.Preference
+import id.pamoyanan_dev.movieshop.AppConst.GOOGLE_SIGN_IN_DATA
 import id.pamoyanan_dev.movieshop.AppConst.RC_SIGN_IN
 import id.pamoyanan_dev.movieshop.AppNavigator.getHomeRoute
 import id.pamoyanan_dev.movieshop.MainApp
@@ -40,10 +40,6 @@ import id.pamoyanan_dev.movieshop.R as R2
  * https://androidclarified.com/android-facebook-login-example/ [facebook login]
  */
 class AuthFragment : BaseFragment<AuthFragmentBinding, AuthVM>(), View.OnClickListener {
-
-    private lateinit var auth: FirebaseAuth
-    private lateinit var googleSignInClient: GoogleSignInClient
-    private lateinit var callbackManager: CallbackManager
 
     override fun onClick(v: View?) {
         when (v?.id) {
@@ -68,8 +64,6 @@ class AuthFragment : BaseFragment<AuthFragmentBinding, AuthVM>(), View.OnClickLi
 
     override fun onStartWork() {
         setupViewListener()
-        setupGoogleClient(setupGoogleSignIn())
-        setupFirebaseAuth()
         setupFacebookSignIn()
 
         // check current state if user has been login
@@ -105,16 +99,16 @@ class AuthFragment : BaseFragment<AuthFragmentBinding, AuthVM>(), View.OnClickLi
     private fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) {
         val credential = GoogleAuthProvider.getCredential(acct.idToken, null)
         auth.signInWithCredential(credential)
-            .addOnCompleteListener(requireActivity()) { task ->
-                if (task.isSuccessful) {
-                    val user = auth.currentUser
-                    user?.let {
-                        showUserAuthProfile(it)
+                .addOnCompleteListener(requireActivity()) { task ->
+                    if (task.isSuccessful) {
+                        val user = auth.currentUser
+                        user?.let {
+                            showUserAuthProfile(it)
+                        }
+                    } else {
+                        requireContext().showToast("Authentication Failed")
                     }
-                } else {
-                    requireContext().showToast("Authentication Failed")
                 }
-            }
     }
 
     private fun showUserAuthProfile(user: FirebaseUser) {
@@ -122,10 +116,10 @@ class AuthFragment : BaseFragment<AuthFragmentBinding, AuthVM>(), View.OnClickLi
             btn_auth_signIn.text = user.email
 
             val medSocSignIn = MedSocSignIn(
-                fullname = user.displayName ?: "",
-                email = user.email ?: "",
-                profileImage = getCurrentUser()?.photoUrl.toString(),
-                phoneNumber = user.phoneNumber ?: ""
+                    fullname = user.displayName ?: "",
+                    email = user.email ?: "",
+                    profileImage = getCurrentUser()?.photoUrl.toString(),
+                    phoneNumber = user.phoneNumber ?: ""
             )
             saveGoogleSignIn(medSocSignIn)
 
@@ -150,39 +144,26 @@ class AuthFragment : BaseFragment<AuthFragmentBinding, AuthVM>(), View.OnClickLi
         activity?.finish()
     }
 
-    private fun setupGoogleSignIn() = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-        .requestIdToken(getString(R2.string.default_web_client_id))
-        .requestEmail()
-        .build()
-
-    private fun setupGoogleClient(gso: GoogleSignInOptions) {
-        googleSignInClient = GoogleSignIn.getClient(requireActivity(), gso)
-    }
-
-    private fun setupFirebaseAuth() {
-        auth = FirebaseAuth.getInstance()
-    }
-
     private fun onGoogleSignIn() {
         val signInIntent = googleSignInClient.signInIntent
         startActivityForResult(signInIntent, RC_SIGN_IN)
     }
 
-    private fun onGoogleSignOut() {
+    fun onGoogleSignOut() {
         FirebaseAuth.getInstance().signOut()
         googleSignInClient.signOut()
-            .addOnCompleteListener(requireActivity()) {
-                if (getCurrentUser() == null) {
-                    btn_auth_signIn.text = "Sign In"
+                .addOnCompleteListener(requireActivity()) {
+                    if (getCurrentUser() == null) {
+                        btn_auth_signIn.text = "Sign In"
+                    }
                 }
-            }
-            .addOnFailureListener { exception ->
-                requireContext().showToast(exception.message ?: "There is something wrong with sign out process")
-            }
+                .addOnFailureListener { exception ->
+                    requireContext().showToast(exception.message
+                            ?: "There is something wrong with sign out process")
+                }
     }
 
-    private fun onFacebookSignOut() {
-        FirebaseAuth.getInstance().signOut()
+    fun onFacebookSignOut() {
         LoginManager.getInstance().logOut()
     }
 
@@ -208,7 +189,7 @@ class AuthFragment : BaseFragment<AuthFragmentBinding, AuthVM>(), View.OnClickLi
 
     private fun handleFacebookAccessToken(token: AccessToken) {
         val request = GraphRequest.newMeRequest(
-            token
+                token
         ) { facebookObj, response ->
             try {
                 val name = facebookObj.getString("name")
@@ -217,10 +198,10 @@ class AuthFragment : BaseFragment<AuthFragmentBinding, AuthVM>(), View.OnClickLi
                 btn_auth_signIn.text = name
 
                 val medSocSignIn = MedSocSignIn(
-                    fullname = name,
-                    email = email,
-                    profileImage = profileImage,
-                    phoneNumber = getCurrentUser()?.phoneNumber ?: ""
+                        fullname = name,
+                        email = email,
+                        profileImage = profileImage,
+                        phoneNumber = getCurrentUser()?.phoneNumber ?: ""
                 )
                 saveGoogleSignIn(medSocSignIn)
 
@@ -282,7 +263,6 @@ class AuthFragment : BaseFragment<AuthFragmentBinding, AuthVM>(), View.OnClickLi
 
     companion object {
         const val IS_GOOGLE_SELECTED = "IS_GOOGLE_SELECTED"
-        const val GOOGLE_SIGN_IN_DATA = "GOOGLE_SIGN_IN_DATA"
 
         fun newInstance() = AuthFragment().putArgs { }
     }

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="profileVM"
+            type="id.pamoyanan_dev.home.profile.ProfileVM" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_marginTop="@dimen/dimens_32dp"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop"
+            app:imageUrlCircleForm="@{profileVM.imageUrl}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_8dp"
+            android:fontFamily="@font/fs_joey_bold"
+            android:text="@{profileVM.fullname}"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/size_18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_4dp"
+            android:fontFamily="@font/fs_joey_bold"
+            android:text="@{profileVM.email}"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/size_18sp" />
+
+        <Button
+            android:id="@+id/btn_profile_signOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimens_16dp"
+            android:layout_marginTop="@dimen/dimens_32dp"
+            android:layout_marginRight="@dimen/dimens_16dp"
+            android:layout_marginBottom="@dimen/dimens_16dp"
+            android:background="@drawable/cv_button_light_pressed"
+            android:fontFamily="@font/fs_joey_bold"
+            android:minHeight="@dimen/dimens_48dp"
+            android:text="@string/sign_out"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/size_18sp" />
+
+    </LinearLayout>
+
+</layout>

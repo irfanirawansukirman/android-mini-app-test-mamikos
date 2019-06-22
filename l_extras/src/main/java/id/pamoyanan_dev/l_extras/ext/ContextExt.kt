@@ -12,8 +12,8 @@ import android.widget.Toast
  * @param activityPackage => exp : id.co.gits.feature_home_detail.HomeDetailActivity
  */
 fun Context.navigatorImplicit(
-    activityPackage: String,
-    intentParams: Intent.() -> Unit
+        activityPackage: String,
+        intentParams: Intent.() -> Unit
 ) {
     val intent = Intent()
     try {
@@ -21,8 +21,8 @@ fun Context.navigatorImplicit(
             intentParams()
             flags = Intent.FLAG_ACTIVITY_NEW_TASK
             setClass(
-                requireNotNull(applicationContext),
-                Class.forName(activityPackage)
+                    requireNotNull(applicationContext),
+                    Class.forName(activityPackage)
             )
         }
         startActivity(intent)
@@ -38,8 +38,35 @@ fun Context.navigatorImplicit(
     //=======================================
 }
 
+/**
+ * Using it for move to another page with clearing existing activity stack
+ */
+fun Context.navigatorWithActivityClearTop(
+        activityPackage: String,
+        intentParams: Intent.() -> Unit
+) {
+    val intent = Intent()
+    try {
+        intent.apply {
+            intentParams()
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            setClass(
+                    requireNotNull(applicationContext),
+                    Class.forName(activityPackage)
+            )
+        }
+        startActivity(intent)
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
+
+    //=========== How to using it ===========
+    // navigatorWithActivityClearTop<YourActivity>()
+    //=======================================
+}
+
 fun Context.showToast(
-    message: String
+        message: String
 ) {
     Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 }

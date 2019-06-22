@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="transactionVM"
+            type="id.pamoyanan_dev.home.transaction.TransactionVM" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rec_transaction"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/greyBackgroundDefault"
+            android:clipToPadding="false"
+            android:padding="@dimen/dimens_4dp"
+            android:scrollbars="none" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/greyBackgroundDefault"
+            android:fontFamily="@font/fs_joey"
+            android:gravity="center"
+            android:text="@string/you_have_not_made_a_purchase_transaction"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/size_18sp"
+            android:visibility="@{transactionVM.checkSizeEvent ? View.GONE : View.VISIBLE}" />
+
+    </FrameLayout>
+</layout>
