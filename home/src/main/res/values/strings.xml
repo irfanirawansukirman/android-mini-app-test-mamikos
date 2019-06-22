@@ -14,7 +14,4 @@
     <string name="description">Description</string>
     <string name="sign_out">Sign Out</string>
     <string name="you_have_not_made_a_purchase_transaction">You have not made a purchase transaction</string>
-    <string name="movie_title">Movie Title</string>
-    <string name="rating">Rating</string>
-    <string name="description">Description</string>
 </resources>
