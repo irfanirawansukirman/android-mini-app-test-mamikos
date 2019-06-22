@@ -65,6 +65,13 @@ class HomeActivity : BaseActivity<HomeActivityBinding>(), BottomNavigationView.O
         return true
     }
 
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean = when {
+        item?.itemId == android.R.id.home -> {
+            true
+        }
+        else -> false
+    }
+
     private fun setupSearchContainerVisibility(isVisible: Boolean) {
         if (isVisible) {
             lin_toolbar_searchContainer.visible()

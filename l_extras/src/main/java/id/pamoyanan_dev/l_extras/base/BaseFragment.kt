@@ -34,15 +34,15 @@ abstract class BaseFragment<VDB : ViewDataBinding, BVM : BaseViewModel> : Fragme
         baseViewModel.apply {
             eventGlobalMessage.observe(this@BaseFragment, Observer { message ->
                 if (message != null) {
-                    when (messageType) {
-                        MESSAGE_SNACK_TYPE -> {
-                            // show snack
-                        }
-                        else -> {
-                            // show toast
-                            requireContext().showToast(message)
-                        }
-                    }
+                    // when (messageType) {
+                    // MESSAGE_SNACK_TYPE -> {
+                    // show snack
+                    // }
+                    // else -> {
+                    // show toast
+                    requireContext().showToast(message)
+                    // }
+                    // }
                 }
             })
         }

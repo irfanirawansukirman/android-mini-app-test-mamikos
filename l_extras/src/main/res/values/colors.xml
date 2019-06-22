@@ -9,4 +9,6 @@
     <color name="greyBackgroundDefault">#E4E4E4</color>
 
     <color name="blueFacebook">#405A93</color>
+
+    <color name="white">#FFF</color>
 </resources>

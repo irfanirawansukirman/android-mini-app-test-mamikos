@@ -31,16 +31,16 @@ class MasterVM(mainApp: MainApp) : BaseViewModel(mainApp) {
                 clear()
                 movieResponse?.forEachIndexed { i, item ->
                     if (i == 0) {
-                        add(MovieFilter(title = "", description = "", vote = "", imageUrl = "", type = 0))
+                        add(MovieFilter(id = null, title = "", description = "", vote = "", imageUrl = "", type = 0, price = ""))
                     } else {
-                        add(
-                            MovieFilter(
+                        add(MovieFilter(
+                                id = null,
                                 title = item.original_title ?: "",
                                 description = item.overview ?: "",
                                 vote = "${item.vote_average.toString()}/10",
                                 imageUrl = "https://image.tmdb.org/t/p/w500${item.poster_path}",
-                                type = 1
-                            )
+                                type = 1,
+                                price = "")
                         )
                     }
                 }

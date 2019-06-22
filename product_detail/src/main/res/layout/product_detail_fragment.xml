@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="rating"
+            type="String" />
+
+        <variable
+            name="description"
+            type="String" />
+
+        <variable
+            name="imageUrl"
+            type="String" />
+
+        <variable
+            name="productDetailVM"
+            type="id.pamoyanan_dev.product_detail.ProductDetailVM" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <ScrollView
+            android:id="@+id/scrollview_productdetail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/card_productDetail_calculatingContainer"
+            android:fillViewport="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:id="@+id/frame_productDetail_imageBackdrop"
+                    android:layout_width="match_parent"
+                    android:layout_height="232dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/app_name"
+                        android:scaleType="centerCrop"
+                        app:imageUrl="@{imageUrl}" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/cv_gradient_black_to_transparent" />
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimens_16dp"
+                    android:layout_marginTop="@dimen/dimens_16dp"
+                    android:fontFamily="@font/fs_joey"
+                    android:text="Rating"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/size_14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimens_16dp"
+                    android:fontFamily="@font/fs_joey"
+                    android:text="@{rating}"
+                    android:textSize="@dimen/size_16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimens_16dp"
+                    android:layout_marginTop="@dimen/dimens_16dp"
+                    android:fontFamily="@font/fs_joey"
+                    android:text="Description"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/size_14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimens_16dp"
+                    android:layout_marginRight="@dimen/dimens_16dp"
+                    android:fontFamily="@font/fs_joey"
+                    android:lineSpacingExtra="@dimen/dimens_2dp"
+                    android:text="@{description}"
+                    android:textSize="@dimen/size_16sp" />
+
+            </LinearLayout>
+        </ScrollView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_productDetail_calculatingContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/dimens_16dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/fs_joey_bold"
+                        android:text="Total Price"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/size_16sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/fs_joey_bold"
+                        android:gravity="right"
+                        android:text="Rp. 100.000"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/size_16sp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_productDetail_submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimens_16dp"
+                    android:layout_marginRight="@dimen/dimens_16dp"
+                    android:layout_marginBottom="@dimen/dimens_16dp"
+                    android:background="@drawable/cv_button_light_pressed"
+                    android:fontFamily="@font/fs_joey_bold"
+                    android:minHeight="@dimen/dimens_48dp"
+                    android:text="Buy"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/size_18sp"
+                    android:visibility="@{productDetailVM.eventShowProgress ? View.GONE : View.VISIBLE}" />
+
+                <ProgressBar
+                    android:layout_width="@dimen/dimens_40dp"
+                    android:layout_height="@dimen/dimens_40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/dimens_16dp"
+                    android:visibility="@{productDetailVM.eventShowProgress ? View.VISIBLE : View.GONE}" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </RelativeLayout>
+
+</layout>

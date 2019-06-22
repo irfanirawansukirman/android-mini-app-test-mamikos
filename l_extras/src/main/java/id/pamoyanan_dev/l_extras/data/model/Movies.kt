@@ -1,5 +1,8 @@
 package id.pamoyanan_dev.l_extras.data.model
 
+import android.arch.persistence.room.ColumnInfo
+import android.arch.persistence.room.Entity
+import android.arch.persistence.room.PrimaryKey
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -29,10 +32,20 @@ data class Result(
 )
 
 @Serializable
+@Entity(tableName = "tb_movie_filter")
 data class MovieFilter(
+        @PrimaryKey(autoGenerate = true)
+        val id: Int?,
+        @ColumnInfo(name = "title")
         val title: String,
+        @ColumnInfo(name = "description")
         val description: String,
+        @ColumnInfo(name = "vote")
         val vote: String,
+        @ColumnInfo(name = "imageUrl")
         val imageUrl: String,
-        val type: Int
+        @ColumnInfo(name = "type")
+        val type: Int,
+        @ColumnInfo(name = "price")
+        val price: String
 )
