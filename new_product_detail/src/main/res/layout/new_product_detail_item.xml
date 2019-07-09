@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="item" type="id.pamoyanan_dev.l_extras.data.model.ContentProducts"/>
+    </data>
+
+    <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:cardUseCompatPadding="true"
+            app:cardCornerRadius="0dp"
+            app:cardBackgroundColor="@color/white"
+            android:layout_margin="@dimen/dimens_8dp">
+
+        <LinearLayout
+                android:id="@+id/lin_productList_itemContainer"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?selectableItemBackground"
+                android:layout_width="184dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/dimens_16dp">
+
+                <ImageView
+                        android:id="@+id/img_product"
+                        android:contentDescription="@string/app_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@{item.price}"
+                    tools:text="Rp. 123.123"
+                    android:layout_marginTop="@dimen/dimens_32dp"
+                    android:textSize="@dimen/size_16sp"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/fs_joey_bold"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    tools:text="Rp. 123.123"
+                    android:lineSpacingExtra="@dimen/dimens_2dp"
+                    android:layout_marginTop="@dimen/dimens_8dp"
+                    android:textSize="@dimen/size_16sp"
+                    android:maxLines="2"
+                    android:text="@{item.description}"
+                    android:ellipsize="end"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/fs_joey_bold"/>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</layout>

@@ -1,6 +1,7 @@
 package id.pamoyanan_dev.l_extras.data
 
 import id.pamoyanan_dev.l_extras.data.model.Article
+import id.pamoyanan_dev.l_extras.data.model.ContentProducts
 import id.pamoyanan_dev.l_extras.data.model.MovieFilter
 import id.pamoyanan_dev.l_extras.data.model.Result
 import id.pamoyanan_dev.l_extras.data.source.AppDataSource
@@ -11,6 +12,10 @@ class AppRepository(
     private val remoteDataSource: AppDataSource,
     private val localDataSource: AppDataSource
 ) : AppDataSource {
+
+    override suspend fun getAllProductsList(productType: String): List<ContentProducts>? {
+        return remoteDataSource.getAllProductsList(productType)
+    }
 
     override suspend fun searchMovie(query: String): List<Result>? {
         return remoteDataSource.searchMovie(query)

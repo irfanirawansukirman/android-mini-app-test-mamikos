@@ -2,6 +2,7 @@ package id.pamoyanan_dev.l_extras.data.source.local
 
 import android.content.Context
 import id.pamoyanan_dev.l_extras.data.model.Article
+import id.pamoyanan_dev.l_extras.data.model.ContentProducts
 import id.pamoyanan_dev.l_extras.data.model.MovieFilter
 import id.pamoyanan_dev.l_extras.data.model.Result
 import id.pamoyanan_dev.l_extras.data.source.AppDataSource
@@ -13,6 +14,10 @@ class LocalDataSource(private val context: Context) : AppDataSource {
 
     private val movieShopDao: MovieShopDao by lazy {
         DataDBSource.getInstance(context).movieShopDao()
+    }
+
+    override suspend fun getAllProductsList(productType: String): List<ContentProducts>? {
+        return emptyList()
     }
 
     override suspend fun searchMovie(query: String): List<Result>? {

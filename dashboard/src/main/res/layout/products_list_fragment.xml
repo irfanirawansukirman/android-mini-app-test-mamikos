@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable name="productsListVM" type="id.pamoyanan_dev.dashboard.productslist.ProductsListVM"/>
+    </data>
+
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/rec_productslist"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/dimens_8dp"
+                android:clipToPadding="false"
+                android:scrollbars="none"/>
+
+        <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="@{productsListVM.eventShowProgress ? View.VISIBLE : View.GONE}"/>
+    </FrameLayout>
+</layout>

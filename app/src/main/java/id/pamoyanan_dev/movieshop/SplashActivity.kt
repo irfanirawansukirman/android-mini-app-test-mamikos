@@ -4,7 +4,7 @@ import android.os.Handler
 import android.support.v4.app.Fragment
 import id.pamoyanan_dev.l_extras.base.BaseActivity
 import id.pamoyanan_dev.l_extras.ext.navigatorImplicit
-import id.pamoyanan_dev.movieshop.AppNavigator.getAuthRoute
+import id.pamoyanan_dev.movieshop.AppNavigator.getDashboardRoute
 import id.pamoyanan_dev.movieshop.databinding.SplashActivityBinding
 
 class SplashActivity : BaseActivity<SplashActivityBinding>() {
@@ -19,7 +19,7 @@ class SplashActivity : BaseActivity<SplashActivityBinding>() {
 
     override fun onStartWork() {
         Handler().postDelayed({
-            navigatorImplicit(getAuthRoute()) {}
+            navigatorImplicit(getDashboardRoute()) {}
             finish()
         }, 1000)
     }

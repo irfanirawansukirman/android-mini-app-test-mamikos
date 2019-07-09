@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".HomeActivity">
+
+        <android.support.design.card.MaterialCardView
+                android:id="@+id/card_home_toolbarContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                app:cardCornerRadius="0dp"
+                app:cardElevation="@dimen/dimens_4dp">
+
+            <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    style="@style/ToolbarLight"
+                    android:background="@android:color/white"
+                    android:theme="@style/ToolbarAccent"
+                    app:contentInsetStart="0dp"
+                    app:contentInsetStartWithNavigation="0dp"
+                    app:navigationIcon="@drawable/ic_menu_black">
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="MamiShop"
+                        android:gravity="center"
+                        android:textSize="@dimen/size_20sp"
+                        android:fontFamily="@font/fs_joey_bold"
+                        android:textColor="@android:color/black"/>
+
+            </android.support.v7.widget.Toolbar>
+        </android.support.design.card.MaterialCardView>
+
+        <FrameLayout
+                android:id="@+id/frame_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/card_home_bottomNavContainer"
+                android:layout_below="@+id/card_home_toolbarContainer"
+                android:background="@color/greyBackgroundDefault"/>
+
+        <android.support.design.card.MaterialCardView
+                android:id="@+id/card_home_bottomNavContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                app:cardCornerRadius="0dp"
+                app:cardElevation="@dimen/dimens_4dp">
+
+            <android.support.design.widget.BottomNavigationView
+                    android:id="@+id/bottom_dashboard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:theme="@style/BottomNavCustomFont"
+                    app:itemIconTint="@drawable/bottom_nav_selector"
+                    app:itemTextColor="@drawable/bottom_nav_selector"
+                    app:labelVisibilityMode="labeled"
+                    app:menu="@menu/dashboard_bottom_menu"/>
+        </android.support.design.card.MaterialCardView>
+    </RelativeLayout>
+</layout>

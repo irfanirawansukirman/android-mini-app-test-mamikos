@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/action_shirt" android:title="T-Shirt" android:icon="@drawable/ic_shirt"
+          app:showAsAction="always"/>
+    <item android:id="@+id/action_jeans" android:title="Jeans" android:icon="@drawable/ic_jeans"
+          app:showAsAction="always"/>
+    <item android:id="@+id/action_hat" android:title="Hat"
+          android:icon="@drawable/ic_hat" app:showAsAction="always"/>
+</menu>

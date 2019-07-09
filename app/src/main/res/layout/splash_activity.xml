@@ -1,31 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+        xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        tools:context=".SplashActivity">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            tools:context=".SplashActivity">
 
         <ImageView
-            android:layout_width="96dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:adjustViewBounds="true"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_movie"
-            android:tint="@android:color/black" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimens_4dp"
-            android:fontFamily="@font/neosanspro_regular"
-            android:text="@string/imovie"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/size_20sp" />
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_mamikos"/>
 
     </LinearLayout>
 

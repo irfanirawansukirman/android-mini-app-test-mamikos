@@ -31,7 +31,7 @@ abstract class BaseActivity<VDB : ViewDataBinding> : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean = when {
         item?.itemId == android.R.id.home -> {
-            onBackPressed()
+            // onBackPressed()
             true
         }
         else -> false

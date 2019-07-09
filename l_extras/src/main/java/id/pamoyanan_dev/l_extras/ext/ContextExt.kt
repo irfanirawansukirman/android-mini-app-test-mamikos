@@ -5,6 +5,10 @@ import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.widget.Toast
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import id.pamoyanan_dev.l_extras.data.model.ContentProducts
+import org.json.JSONArray
 
 /**
  * Using it for moving to another page with activity package name (usually modular package) with params

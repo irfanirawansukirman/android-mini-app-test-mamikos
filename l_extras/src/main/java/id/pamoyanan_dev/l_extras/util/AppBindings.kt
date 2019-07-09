@@ -34,7 +34,7 @@ object AppBindings {
     fun setImageUrl(imageView: ImageView, imageUrl: String) {
         if (imageUrl.isNotEmpty()) {
             GlideApp.with(imageView.context)
-                .load(imageUrl)
+                .load("https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcR9MYXXaAINhVeIlWyjJmPX3U48IpL9NggHHY4IoHYRU0RUTr-yYH4GKiHcesRCYu_fgUEOqQp2d9w&amp;usqp=CAc")
                 .placeholder(R.color.greyBackgroundDefault)
                 .error(R.color.greyBackgroundDefault)
                 .into(imageView)

@@ -9,4 +9,6 @@
     <string name="title_news">News</string>
     <string name="title_product_search">Product Search</string>
     <string name="imovie">iMovie</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_new_product_detail">New Product Detail</string>
 </resources>

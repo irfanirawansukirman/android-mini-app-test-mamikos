@@ -5,6 +5,7 @@ import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterF
 import id.pamoyanan_dev.l_extras.BuildConfig
 import id.pamoyanan_dev.l_extras.data.model.EntertainmentNews
 import id.pamoyanan_dev.l_extras.data.model.Movies
+import id.pamoyanan_dev.l_extras.data.model.Products
 import id.pamoyanan_dev.l_extras.ext.isNetworkAvailable
 import kotlinx.coroutines.Deferred
 import okhttp3.Cache
@@ -27,6 +28,15 @@ interface ApiService {
 
     @GET("v2/top-headlines?sources=entertainment-weekly&apiKey=4fa8c99448514523bc529ef020fab345")
     fun getEntertaimentNewsAsync(): Deferred<Response<EntertainmentNews>>
+
+    @GET("list/shirt")
+    fun getShirtsList(): Deferred<Response<Products>>
+
+    @GET("list/jeans")
+    fun getJeansList(): Deferred<Response<Products>>
+
+    @GET("list/hat")
+    fun getHatsList(): Deferred<Response<Products>>
 
     companion object Builder {
 
